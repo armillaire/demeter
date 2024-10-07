@@ -37,7 +37,7 @@ read_skel(const char *filename) {
 
       sym->output = (char *)realloc(sym->output, i - start_index);
 
-      if (strlen(sym->input) != 0 && strlen(sym->output) != 0) {
+      if (sym->input != NULL && sym->output != NULL) {
         sym_index += 1;
         symlinks = (Sym *)realloc(symlinks, (sym_index + 1) * sizeof(Sym));
         

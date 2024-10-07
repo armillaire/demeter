@@ -11,8 +11,13 @@ main(int argc, char **argv) {
   Sym *symlinks = read_skel(argv[1]);
 
   for (int i = 0;; i++) {
-    symlink(symlinks[i].input, symlinks[i].output);
+    int res = symlink(symlinks[i].input, symlinks[i].output);
 
+    if (res != 0) {
+      perror("symlink");
+      exit(1);
+    }
+    
     printf("%s -> %s\n", symlinks[i].input, symlinks[i].output);
     
     if (symlinks[i].end)
