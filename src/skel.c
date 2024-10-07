@@ -95,10 +95,3 @@ read_file(const char *filename) {
 
   return file_contents;
 }
-
-static Sym
-create_sym(const size_t in, const size_t out) {
-  Sym new = {0};
-  
-  return new;
-}
